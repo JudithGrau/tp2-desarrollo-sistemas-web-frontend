@@ -900,11 +900,13 @@ footer {
 .app-layout {
   display: flex;
   min-height: 100vh;
+  width: 100%;
   background-color: var(--color-bg, #071A1F);
 }
 
 .sidebar {
   width: 260px;
+  min-width: 260px;
   background-color: var(--color-surface, #102A30);
   border-right: 1px solid var(--color-border, rgba(56, 189, 248, 0.15));
   display: flex;
@@ -912,7 +914,8 @@ footer {
   padding: 24px 16px;
   position: sticky;
   top: 0;
-  height: 100vh;
+  /*height: 100vh;*/
+  box-sizing: border-box;
   overflow-y: auto;
   z-index: 50;
   transition: transform 0.3s ease;
@@ -973,10 +976,22 @@ footer {
   border-left: 3px solid var(--color-blue, #38BDF8);
 }
 
+  /* Ocultar la barra de scroll tosca del navegador en la sidebar */
+  .sidebar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background: rgba(56, 189, 248, 0.2);
+    border-radius: 4px;
+  }
+
 .main-content {
   flex: 1;
   padding: 40px;
-  max-width: 1100px;
+  max-width: calc(100% - 260px);
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .mobile-menu-btn {
