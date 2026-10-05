@@ -1,0 +1,1217 @@
+/* --------------------------------------------------------------------------
+   1. Variables globales (:root) — Tokens compartidos para todo el equipo
+   -------------------------------------------------------------------------- */
+:root {
+    /* Paleta de colores principal */
+    --color-bg: #071A1F;
+    --color-surface: #102A30;
+    --color-surface-hover: #163840;
+    --color-blue: #38BDF8;
+    --color-coral: #FF8066;
+    --color-text: #F1F5F9;
+    --color-text-secondary: #A7B8BA;
+    --color-blue-dark: #164E63;
+    --color-coral-dark: #C95F50;
+
+    /* Acentos & sombras */
+    --color-border: rgba(56, 189, 248, 0.15);
+    --color-border-subtle: rgba(241, 245, 249, 0.08);
+    --shadow-glow-blue: 0 0 25px rgba(56, 189, 248, 0.2);
+    --shadow-glow-coral: 0 0 25px rgba(255, 128, 102, 0.25);
+    --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.35);
+
+    /* Tipografia */
+    --font-title: 'Sora', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Bordes y esquinas */
+    --radius-small: 8px;
+    --radius-medium: 16px;
+    --radius-large: 24px;
+    --radius-pill: 9999px;
+
+    /* Transiciones */
+    --transition-fast: 200ms ease;
+    --transition-normal: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: 500ms cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Dimensiones */
+    --max-width: 1200px;
+    --navbar-height: 72px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Estilos Base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--navbar-height);
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    min-height: 100dvh;
+}
+
+/* Seleccion de texto */
+::selection {
+    background-color: var(--color-blue);
+    color: var(--color-bg);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Contenedor principal responsive */
+.container {
+    width: min(90%, var(--max-width));
+    margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   3. Tipografia & Jerarquia Compartida
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+    color: var(--color-text);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+}
+
+h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+h3 {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+p {
+    color: var(--color-text-secondary);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.text-accent {
+    color: var(--color-coral);
+}
+
+.text-blue {
+    color: var(--color-blue);
+}
+
+/* Etiquetas destacadas (Eyebrow / Badges) */
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-title);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-coral);
+    margin-bottom: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Componente Navbar (Sticky & Glass)
+   -------------------------------------------------------------------------- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--navbar-height);
+    background-color: rgba(7, 26, 31, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color var(--transition-fast);
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.nav-brand {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-text);
+}
+
+.nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-title);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-blue);
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    background-color: rgba(56, 189, 248, 0.05);
+    transition: all var(--transition-fast);
+}
+
+.nav-back:hover {
+    background-color: var(--color-blue-dark);
+    color: var(--color-text);
+    border-color: var(--color-blue);
+    transform: translateX(-3px);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    transition: color var(--transition-fast);
+    position: relative;
+    padding: 4px 0;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--color-coral);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-coral);
+    border-radius: 2px;
+    transition: width var(--transition-fast);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   5. Botones (CTA Architecture)
+   -------------------------------------------------------------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: var(--radius-medium);
+    font-family: var(--font-title);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-blue), var(--color-coral));
+    color: #040F13;
+    box-shadow: 0 4px 16px rgba(56, 189, 248, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow-coral);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-blue);
+    border: 1px solid var(--color-blue);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-blue-dark);
+    color: var(--color-text);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   6. Secciones Generales & Double-Bezel Cards
+   -------------------------------------------------------------------------- */
+section {
+    padding: 20px;
+    position: relative;
+}
+
+.section-header {
+    margin-bottom: 10px;
+}
+
+.section-header-center {
+    text-align: center;
+}
+
+.section-header h2 span {
+    color: var(--color-coral);
+}
+
+/* Hero en Portada */
+.hero-section {
+    text-align: center;
+    padding: 90px 0 50px 0;
+}
+
+.hero-title {
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    max-width: 680px;
+    margin: 0 auto 36px auto;
+    font-size: 1.1rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Arquitectura "Double-Bezel" para contenedores premium */
+.double-bezel {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-large);
+    padding: 8px;
+    box-shadow: var(--shadow-card);
+    transition: border-color var(--transition-normal);
+}
+
+.double-bezel-inner {
+    background-color: var(--color-surface);
+    border-radius: calc(var(--radius-large) - 6px);
+    padding: 32px;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   7. Tarjetas de Integrantes (Reutilizable en Portada / Equipo)
+   -------------------------------------------------------------------------- */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.member-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 20px;
+    gap: 16px;
+}
+
+.member-avatar-slot {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 180px;
+    border-radius: var(--radius-medium);
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-surface-hover), var(--color-blue-dark));
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: var(--shadow-glow-blue);
+    transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+.member-avatar-slot:hover {
+    transform: scale(1.03);
+    border-color: var(--color-coral);
+}
+
+.member-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.member-avatar-icon {
+    font-size: 2.2rem;
+    color: var(--color-blue);
+}
+
+.member-avatar-label {
+    font-family: var(--font-title);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.member-name {
+    font-size: 1.35rem;
+    margin-bottom: 4px;
+}
+
+.member-role {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   8. Footer Compartido
+   -------------------------------------------------------------------------- */
+footer {
+    border-top: 1px solid var(--color-border);
+    background-color: rgba(7, 26, 31, 0.95);
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.btn-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-coral);
+    padding: 10px 20px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--color-coral);
+    background-color: transparent;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.btn-top:hover {
+    background-color: var(--color-coral-dark);
+    color: var(--color-text);
+    transform: translateY(-3px);
+}
+
+.footer-credits {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+/* Judith: --- Complemento: Resultado dinámico JS en Portada --- */
+.spotlight-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--color-surface-hover);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    padding: 20px;
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: left;
+    box-shadow: var(--shadow-glow-blue);
+    animation: fadeIn 300ms ease;
+}
+
+.spotlight-box-img {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-small);
+    object-fit: cover;
+    border: 1px solid var(--color-blue);
+    flex-shrink: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+    .spotlight-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   9. Breakpoints Generales (400px, 900px, 1200px)
+   -------------------------------------------------------------------------- */
+
+/* Desktop Amplio (>= 1200px) */
+@media (min-width: 1200px) {
+    .container {
+        width: 1200px;
+    }
+}
+
+/* Tablet / Movil Grande (<= 900px) */
+@media (max-width: 900px) {
+    section {
+        padding: 60px 0;
+    }
+
+    .hero-section {
+        padding: 60px 0 36px 0;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+}
+
+/* Movil Pequeño (<= 400px) */
+@media (max-width: 400px) {
+    :root {
+        --navbar-height: 64px;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    section {
+        padding: 44px 0;
+    }
+
+    .hero-section {
+        padding: 44px 0 24px 0;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+    .nav-back {
+        padding: 6px 12px;
+        font-size: 0.78rem;
+    }
+
+    .nav-links {
+        gap: 8px;
+    }
+
+    .nav-links a {
+        font-size: 0.75rem;
+    }
+
+    .double-bezel-inner {
+        padding: 20px 16px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   10. Componentes Compartidos de Perfiles (Layout Global)
+   -------------------------------------------------------------------------- */
+.profile-section-hero {
+    padding: 20px 0 40px 0;
+}
+
+.profile-section {
+    padding: 20px 0;
+}
+
+.profile-section-dynamic {
+    padding: 30px 0 60px 0;
+}
+
+.profile-hero-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+    align-items: center;
+}
+
+.profile-avatar-wrapper {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.profile-details {
+    flex: 1;
+    min-width: 280px;
+}
+
+.profile-name {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 8px;
+}
+
+.profile-role {
+    color: var(--color-blue);
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.profile-meta-info {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.profile-bio-text {
+    margin-bottom: 24px;
+}
+
+.profile-socials {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.profile-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Utilidades generales */
+.h-100 { height: 100%; }
+.text-center { text-align: center; }
+.mb-3 { margin-bottom: 16px; }
+.mb-4 { margin-bottom: 24px; }
+
+.dynamic-display {
+    margin-top: 20px;
+    font-weight: 500;
+    min-height: 28px;
+    color: var(--color-coral);
+}
+
+.profile-main-content {
+    padding-top: 40px;
+}
+
+.profile-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.mt-2 { margin-top: 10px; }
+.mt-4 { margin-top: 24px; }
+.mb-2 { margin-bottom: 12px; }
+.pb-2 { padding-bottom: 20px; }
+.d-none { display: none; }
+
+/* Estilos de la tarjeta dinámica de portada (Spotlight) */
+.spotlight-title {
+    font-size: 1.2rem;
+    color: var(--color-coral);
+    margin-bottom: 4px;
+}
+.spotlight-role {
+    font-size: 0.85rem;
+    color: var(--color-blue);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+.spotlight-desc {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+.spotlight-btn {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+}
+
+/* ========================================================================= 
+                    ESTILOS ESPECÍFICOS — PERFIL MATI
+   ========================================================================= */
+
+/* Galerías de Scroll Horizontal (Películas & Discos) */
+.scroll-gallery-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.scroll-gallery {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 12px 4px 24px 4px;
+    -webkit-overflow-scrolling: touch;
+    
+    /* Ocultar barra de scroll  */
+    scrollbar-width: none;
+}
+
+.scroll-gallery::-webkit-scrollbar {
+    display: none;
+}
+
+/* Tarjeta base de película / disco */
+.media-card {
+    flex: 0 0 260px;
+    width: 260px;
+    min-width: 260px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    position: relative;
+    border-radius: var(--radius-medium);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+    cursor: pointer;
+}
+
+.media-card:hover,
+.media-card.is-active {
+    transform: translateY(-6px);
+    border-color: var(--color-coral);
+    box-shadow: var(--shadow-glow-coral);
+}
+
+/* Proporciones de tarjetas */
+.media-card.movie-card {
+    aspect-ratio: 2 / 3;
+}
+
+.media-card.album-card {
+    aspect-ratio: 1 / 1;
+    flex: 0 0 280px;
+    width: 280px;
+    min-width: 280px;
+    flex-shrink: 0;
+}
+
+.media-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-slow);
+}
+
+.media-card:hover .media-poster,
+.media-card.is-active .media-poster {
+    transform: scale(1.25);
+}
+
+/* Cabecera de sección con controles de carrusel integrados */
+.section-header-with-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* Botones de navegación del carrusel */
+.carousel-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-medium);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-size: 1.4rem;
+    font-family: inherit;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    user-select: none;
+}
+
+.carousel-btn:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-coral);
+    color: var(--color-coral);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow-coral);
+}
+
+.carousel-btn:active {
+    transform: translateY(0);
+}
+
+
+/* Overlay interactivo (Hover / Tap info) */
+.media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(7, 26, 31, 0.96) 0%, rgba(7, 26, 31, 0.85) 50%, rgba(7, 26, 31, 0.4) 100%);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.media-overlay::-webkit-scrollbar {
+    display: none;
+}
+
+.media-overlay > :first-child {
+    margin-top: auto;
+}
+
+.media-card:hover .media-overlay,
+.media-card.is-active .media-overlay {
+    opacity: 1;
+}
+
+.media-tag {
+    font-family: var(--font-title);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-coral);
+    margin-bottom: 6px;
+}
+
+.media-overlay-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.25;
+    margin-bottom: 4px;
+}
+
+.media-overlay-artist {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-blue);
+    margin-bottom: 8px;
+}
+
+.media-overlay-meta {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 12px;
+}
+
+.media-overlay-review {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: #D1D5DB;
+    border-top: 1px solid rgba(241, 245, 249, 0.15);
+    padding-top: 10px;
+}
+
+/* Optimizacion de tipografia y espaciado para tarjetas cuadradas de discos */
+.album-card .media-overlay {
+    padding: 16px 14px;
+}
+
+.album-card .media-tag {
+    font-size: 0.65rem;
+    margin-bottom: 2px;
+}
+
+.album-card .media-overlay-title {
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-bottom: 2px;
+}
+
+.album-card .media-overlay-artist {
+    font-size: 0.82rem;
+    margin-bottom: 2px;
+}
+
+.album-card .media-overlay-meta {
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+}
+
+.album-card .media-overlay-review {
+    font-size: 0.78rem;
+    line-height: 1.35;
+    padding-top: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   11. Diseno Adaptativo Global (Responsive Design)
+       Breakpoints obligatorios por consigna: 1200px, 900px y 400px
+   -------------------------------------------------------------------------- */
+
+/* Breakpoint 1: max-width 1200px (Desktop medio / Laptop) */
+@media (max-width: 1200px) {
+    .container {
+        width: min(92%, var(--max-width));
+    }
+
+
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Breakpoint 2: max-width 900px (Tablets y pantallas intermedias) */
+@media (max-width: 900px) {
+    :root {
+        --navbar-height: auto;
+    }
+
+    /* Navbar adaptada */
+    .navbar {
+        position: sticky;
+        height: auto;
+        padding: 12px 0;
+    }
+
+    .navbar-content {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .nav-links {
+        gap: 12px 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Hero general y portada */
+    .hero-section {
+        padding: 40px 0 24px 0;
+    }
+
+    .hero-title {
+        font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        padding: 0 8px;
+    }
+
+    /* Grilla de integrantes en 2 columnas */
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* Tarjetas de doble reborde */
+    .double-bezel-inner {
+        padding: 24px;
+    }
+
+    /* Seccion Hero de perfiles */
+    .profile-hero-layout {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+    }
+
+    .profile-avatar-wrapper {
+        max-width: 170px;
+        margin: 0 auto;
+    }
+
+    .profile-details {
+        min-width: 100%;
+    }
+
+    .profile-meta-info {
+        justify-content: center;
+    }
+
+    .profile-socials {
+        justify-content: center;
+    }
+
+    /* Carrusel de peliculas y discos */
+    .media-card {
+        flex: 0 0 220px;
+        width: 220px;
+        min-width: 220px;
+    }
+
+    .media-card.album-card {
+        flex: 0 0 250px;
+        width: 250px;
+        min-width: 250px;
+    }
+
+    .album-card .media-overlay {
+        padding: 14px 12px;
+    }
+
+    .album-card .media-overlay-title {
+        font-size: 0.95rem;
+    }
+
+    .album-card .media-overlay-review {
+        font-size: 0.76rem;
+        line-height: 1.3;
+    }
+
+    .carousel-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.25rem;
+    }
+}
+
+/* Breakpoint 3: max-width 400px (Mobile / Smartphones compactos) */
+@media (max-width: 400px) {
+    .container {
+        width: 94%;
+    }
+
+    /* Navbar compacta sin desborde */
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .navbar-content {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .nav-brand {
+        font-size: 1rem;
+    }
+
+    .nav-back {
+        font-size: 0.78rem;
+        padding: 6px 14px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-links {
+        gap: 6px 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 0.72rem;
+        padding: 4px 6px;
+    }
+
+    /* Tipografias y encabezados */
+    h1 {
+        font-size: 1.65rem;
+    }
+
+    h2 {
+        font-size: 1.35rem;
+    }
+
+    h3 {
+        font-size: 1.15rem;
+    }
+
+    /* Hero section */
+    .hero-section {
+        padding: 24px 0 16px 0;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Grilla de equipo: 1 columna completa */
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* Doble reborde adaptado para maximizar area util */
+    .double-bezel {
+        padding: 4px;
+    }
+
+    .double-bezel-inner {
+        padding: 16px 12px;
+    }
+
+    /* Perfil individual */
+    .profile-main-content {
+        padding-top: 16px;
+    }
+
+    .profile-name {
+        font-size: 1.6rem;
+    }
+
+    .profile-avatar-wrapper {
+        max-width: 140px;
+    }
+
+    .profile-meta-info {
+        flex-direction: column;
+        gap: 6px;
+        align-items: center;
+        font-size: 0.85rem;
+    }
+
+    .profile-socials {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .profile-socials a {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .profile-list li {
+        font-size: 0.88rem;
+    }
+
+    /* Carrusel y tarjetas de peliculas / discos */
+    .scroll-gallery {
+        gap: 14px;
+        padding: 8px 2px 18px 2px;
+    }
+
+    .media-card {
+        flex: 0 0 190px;
+        width: 190px;
+        min-width: 190px;
+    }
+
+    .media-card.album-card {
+        flex: 0 0 230px;
+        width: 230px;
+        min-width: 230px;
+    }
+
+    .media-overlay {
+        padding: 12px;
+    }
+
+    .media-overlay-title {
+        font-size: 0.92rem;
+    }
+
+    .media-overlay-review {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+
+    .album-card .media-overlay {
+        padding: 10px 8px;
+    }
+
+    .album-card .media-overlay-title {
+        font-size: 0.88rem;
+    }
+
+    .album-card .media-overlay-artist {
+        font-size: 0.74rem;
+    }
+
+    .album-card .media-overlay-meta {
+        font-size: 0.68rem;
+        margin-bottom: 4px;
+    }
+
+    .album-card .media-overlay-review {
+        font-size: 0.70rem;
+        line-height: 1.25;
+        padding-top: 4px;
+    }
+
+    .section-header-with-controls {
+        align-items: center;
+    }
+
+    .carousel-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 1.1rem;
+    }
+
+    /* Botones y controles accesibles */
+    .btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+        min-height: 44px;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+}
