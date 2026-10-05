@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "titulo": "React Documentation",
+    "categoria": "Frameworks / Librerías",
+    "descripcion": "Documentación oficial con explicaciones guiadas, tutoriales interactivos y buenas prácticas para React.",
+    "enlace": "https://react.dev",
+    "tags": ["frontend", "javascript", "react"]
+  },
+  {
+    "id": 2,
+    "titulo": "Vite",
+    "categoria": "Herramientas de Build",
+    "descripcion": "Entorno de desarrollo rápido y empaquetador moderno para aplicaciones web con soporte nativo de ES Modules.",
+    "enlace": "https://vitejs.dev",
+    "tags": ["build", "bundler", "vite"]
+  },
+  {
+    "id": 3,
+    "titulo": "MDN Web Docs",
+    "categoria": "Documentación & Guías",
+    "descripcion": "Referencia técnica exhaustiva sobre HTML, CSS, JavaScript y estándares web modernos.",
+    "enlace": "https://developer.mozilla.org",
+    "tags": ["html", "css", "javascript", "docs"]
+  }
+]
