@@ -896,6 +896,134 @@ footer {
     padding-top: 6px;
 }
 
+/* Layout general con Sidebar fija - judith */ 
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--color-bg, #071A1F);
+}
+
+.sidebar {
+  width: 260px;
+  background-color: var(--color-surface, #102A30);
+  border-right: 1px solid var(--color-border, rgba(56, 189, 248, 0.15));
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 50;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-brand {
+  margin-bottom: 24px;
+}
+
+.brand-badge {
+  background: var(--color-coral, #FF8066);
+  color: #040F13;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.sidebar-subtitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-text-secondary, #A7B8BA);
+  letter-spacing: 0.1em;
+  margin: 16px 0 6px 12px;
+  display: block;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: var(--color-text-secondary, #A7B8BA);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.sidebar-nav a:hover {
+  background: var(--color-surface-hover, #163840);
+  color: var(--color-text, #F1F5F9);
+}
+
+/* Indicador de sección activa exigido por la consigna */
+.sidebar-nav a.active {
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--color-blue, #38BDF8);
+  font-weight: 600;
+  border-left: 3px solid var(--color-blue, #38BDF8);
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+  max-width: 1100px;
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+/* Adaptación responsive para pantallas chicas - judith */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    background: var(--color-surface, #102A30);
+    color: var(--color-text, #F1F5F9);
+    border: 1px solid var(--color-border, rgba(56, 189, 248, 0.2));
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 40;
+  }
+
+  .main-content {
+    padding: 20px;
+    padding-top: 60px;
+  }
+}
+
 /* --------------------------------------------------------------------------
    11. Diseno Adaptativo Global (Responsive Design)
        Breakpoints obligatorios por consigna: 1200px, 900px y 400px
