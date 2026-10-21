@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import imgMauro from '../../assets/mauro.png';
+import imgMauro from "../../assets/mauro.png";
 
 const mauroData = {
   name: "Mauro Flores",
@@ -49,10 +49,12 @@ export default function MauroProfile() {
         <div className="double-bezel">
           <div className="double-bezel-inner profile-hero-layout">
             <div className="member-avatar-slot profile-avatar-wrapper">
-              {/* Con foto: <img src={imgMauro} alt={`Foto de ${mauroData.name}`} className="member-avatar-img" /> */}
-              <span className="member-avatar-img" role="img" aria-label={`Avatar de ${mauroData.name}`}>M</span>
+              <img src={imgMauro} 
+              alt={`Foto de ${mauroData.name}`} 
+              className="member-avatar-img"
+              />
             </div>
-
+            
             <div className="profile-details">
               <span className="eyebrow">{mauroData.teamRole}</span>
               <h1 className="profile-name">{mauroData.name}</h1>
