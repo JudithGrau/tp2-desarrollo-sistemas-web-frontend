@@ -1265,8 +1265,9 @@ footer {
 
 .main-content {
   flex: 1;
+  min-width: 0;
+  width: 100%;
   padding: 40px;
-  max-width: calc(100% - 260px);
   min-height: 100vh;
   box-sizing: border-box;
 }
@@ -1275,28 +1276,42 @@ footer {
   display: none;
 }
 
-/* Adaptación responsive para pantallas chicas - judith */
-@media (max-width: 768px) {
+/* Adaptación responsive para pantallas chicas y tablets (Breakpoint 900px) */
+@media (max-width: 900px) {
   .mobile-menu-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     top: 16px;
     right: 16px;
-    z-index: 100;
+    z-index: 1000;
     background: var(--color-surface, #102A30);
     color: var(--color-text, #F1F5F9);
     border: 1px solid var(--color-border, rgba(56, 189, 248, 0.2));
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 1.2rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    font-size: 1.3rem;
     cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .mobile-menu-btn:hover {
+    background: var(--color-surface-hover, #163840);
+    border-color: var(--color-blue);
   }
 
   .sidebar {
     position: fixed;
     top: 0;
     left: 0;
+    height: 100dvh;
+    height: 100vh;
+    z-index: 900;
     transform: translateX(-100%);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.6);
   }
 
   .sidebar.sidebar-open {
@@ -1306,8 +1321,10 @@ footer {
   .sidebar-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 40;
+    background: rgba(4, 15, 19, 0.75);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 850;
   }
 
   .profile-hero-layout {
@@ -1322,8 +1339,11 @@ footer {
   }
 
   .main-content {
-    padding: 20px;
-    padding-top: 60px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 24px 16px 48px 16px;
+    padding-top: 72px;
   }
 }
 
@@ -1455,7 +1475,26 @@ footer {
 /* Breakpoint 3: max-width 400px (Mobile / Smartphones compactos) */
 @media (max-width: 400px) {
     .container {
-        width: 94%;
+        width: 100%;
+    }
+
+    .main-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 16px 12px 36px 12px;
+        padding-top: 68px;
+    }
+
+    .profile-container {
+        width: 100%;
+        max-width: 100%;
+        gap: 20px;
+    }
+
+    section {
+        padding: 10px 0;
+        width: 100%;
     }
 
     /* Navbar compacta sin desborde */
