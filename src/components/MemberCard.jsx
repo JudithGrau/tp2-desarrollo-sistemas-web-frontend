@@ -1,26 +1,25 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function MemberCard({ id, name, role, avatar, icon = '👤' }) {
+  const [imgError, setImgError] = useState(false);
+
   return (
     <article className="double-bezel">
       <div className="double-bezel-inner member-card-content">
         <div className="member-avatar-slot">
-          {avatar ? (
+          {avatar && !imgError ? (
             <img 
               src={avatar} 
               alt={`Avatar de ${name}`} 
               className="member-avatar-img"
-              onError={(e) => {
-                e.target.style.display = 'none';
-                if (e.target.nextElementSibling) {
-                  e.target.nextElementSibling.style.display = 'flex';
-                }
-              }} 
+              onError={() => setImgError(true)} 
             />
-          ) : null}
-          <div className="member-avatar-icon" style={{ display: avatar ? 'none' : 'flex' }}>
-            {icon}
-          </div>
+          ) : (
+            <div className="member-avatar-icon">
+              {icon}
+            </div>
+          )}
         </div>
 
         <div>
