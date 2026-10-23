@@ -684,6 +684,7 @@ footer {
 .random-avatar-fallback {
   width: 100%;
   height: 100%;
+  display: flex;
   background: var(--color-surface, #102A30);
   align-items: center;
   justify-content: center;
