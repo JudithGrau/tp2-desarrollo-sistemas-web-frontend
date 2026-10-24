@@ -107,6 +107,7 @@ Paleta de Colores (Tokens Hexadecimales)
 
 ---
 
+```
 ## Estructura de Archivos y Carpetas
 tp2-desarrollo-sistemas-web-frontend/
 ├── public/                     # Archivos estáticos
@@ -143,6 +144,7 @@ tp2-desarrollo-sistemas-web-frontend/
     ├── assets/                 # Imágenes y fotos del equipo
     └── styles/
         └── style.css           # Hoja compartida: tokens, componentes y diseño responsive
+```
 
 ---
 
