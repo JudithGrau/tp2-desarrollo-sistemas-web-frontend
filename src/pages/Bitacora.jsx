@@ -56,21 +56,39 @@ const ENTRADAS = [
       "Publicó todo en main y pidió al equipo traer los cambios con git pull y crear su rama antes de empezar, indicando a cada uno sus archivos.",
     ]
   },
-{
-  entrada: "5",
-  titulo: "Matías: ajustes visuales de los componentes y su perfil",
-  responsables: "Matías Jara",
-  tipo: "Decisión",
-  texto:
-    "Matías decidió construir su perfil con la misma estructura que los demás y en paralelo, cuidar la coherencia visual de los componentes compartidos, aprovechando su rol de sistema visual del TP1. Su plan de trabajo:",
+  {
+    entrada: "5",
+    titulo: "Matías: sistema visual compartido en una hoja de estilos",
+    responsables: "Matías Jara.",
+    tipo: "Decisión",
+    texto:
+      "Matías decidió concentrar el diseño en una única hoja de estilos (src/styles/style.css), cargada desde main.jsx y basada en variables globales, para que la portada, los perfiles, la sidebar y las secciones técnicas compartan la misma identidad visual sin duplicar estilos. Para eso siguió estos pasos:",
     pasos: [
-      "Agregó una interacción propia con useState, un botón que cambia el contenido mostrado, para cumplir el nivel Propone de los perfiles.",
-      "Revisó las clases compartidas (tarjetas, etiquetas, botones y listas) y ajustó colores, tipografías y espaciados desde la hoja de estilos común, sin duplicar estilos en archivos propios.",
-      "Probó el perfil y los componentes en pantalla grande, tablet y móvil, y corrigió los desbordes y las diferencias de diseño entre perfiles.",
+      "Definió en :root los tokens del equipo: la paleta (fondo azul petróleo, superficies más claras, acento azul y acento coral), las tipografías Sora para títulos e Inter para el texto, una escala tipográfica fluida con clamp, una escala de espaciado, radios de borde, transiciones y niveles de z-index.",
+      "Armó el reset y los estilos base (body, títulos, párrafos, enlaces y selección de texto) usando únicamente esas variables, de modo que un cambio de color o de tipografía se propague a toda la aplicación.",
+      "Creó los componentes reutilizables del sistema: botones en cuatro variantes (primario con degradado, secundario, de acento y ghost), badges de colores, la etiqueta eyebrow y los contenedores de doble borde (double-bezel) y de tarjeta con imagen (card-bezel).",
+      "Sumó clases utilitarias de texto y de espaciado (text-blue, text-accent, mb-3, mt-4, h-100) y una clase para lectores de pantalla (sr-only), para que cada integrante arme sus vistas con las mismas piezas y sin escribir CSS propio."
     ]
   },
+  {
+    entrada: "6",
+    titulo: "Matías: perfil con galerías interactivas de películas y discos",
+    responsables: "Matías Jara.",
+    tipo: "Decisión",
+    texto:
+      "Para su perfil, Matías decidió ir más allá de una lista y presentar sus películas y discos favoritos como galerías interactivas, aprovechando el sistema visual compartido. Su trabajo, paso a paso:",
+    pasos: [
+      'Reutilizó la estructura de perfil del equipo (presentación, tarjetas y botones) para que su vista fuera coherente con las de los demás integrantes.',
+      'Armó dos galerías de desplazamiento horizontal (scroll-gallery), una de películas y otra de discos, con scroll-snap para que cada tarjeta se alinee al deslizar y con la barra de scroll oculta para un aspecto limpio.',
+      'Diseñó la tarjeta multimedia (media-card) con proporción de póster 2:3 para las películas y cuadrada para los discos, la imagen ocupando toda la tarjeta y un efecto de elevación con borde coral al pasar el mouse.',
+      'Agregó una capa informativa (media-overlay) que aparece con desvanecido y desenfoque al pasar el mouse o al marcar la tarjeta como activa (clase is-active, pensada para tocar en celulares), con la etiqueta, el título, el artista, los datos y una reseña breve.',
+      'Incorporó botones de flecha (carousel-btn) en la cabecera de cada galería para desplazarla, con los mismos colores y efectos del resto del sistema.',
+      'Ajustó los tamaños de las tarjetas, de los textos de la capa y de los botones en los breakpoints de 900px y 400px, para que las galerías se vean bien en tablet y en celular.'
+    ]
+  },
+
 {
-  entrada: "6",
+  entrada: "7",
   titulo: "Lucas: recursos.json, búsqueda y filtros",
   responsables: "Lucas Luccaroni",
   tipo: "Decisión",
@@ -85,7 +103,7 @@ const ENTRADAS = [
     ]
   },
   {
-    entrada: "7",
+    entrada: "8",
     titulo: "Mauro: API pública con estados de carga y error",
     responsables: "Mauro Flores",
     tipo: "Decisión",
@@ -100,7 +118,7 @@ const ENTRADAS = [
     ]
   }, 
   {
-    entrada: "8",
+    entrada: "9",
     titulo: "Mauro: árbol de renderizado verificado contra el código",
     responsables: "Mauro Flores",
     tipo: "Logro",
@@ -114,7 +132,7 @@ const ENTRADAS = [
     ]
   },
   {
-   entrada: "9",
+   entrada: "10",
     titulo: "Mauro: bitácora integrada a la navegación",
     responsables: "Mauro Flores",
     tipo: "Decisión",
@@ -128,7 +146,7 @@ const ENTRADAS = [
     ]
 },
 {
-  entrada: "10",
+  entrada: "11",
   titulo: "Uso de IA como asistente",
   responsables: "Todos",
   tipo: "Decisión",
