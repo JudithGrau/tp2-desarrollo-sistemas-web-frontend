@@ -3,7 +3,7 @@ const ENTRADAS = [
     entrada: "1",
     titulo: "Organización inicial y acuerdo de trabajo en equipo",
     responsables: "Judith Grau, Matías Jara, Lucas Luccaroni, Mauro Flores",
-    tipo: "decisión",
+    tipo: "Decisión",
     texto: "Decidimos continuar el proyecto del TP1 llevándolo a React, con un sitio navegable organizado desde una sidebar compartida. Judith creó el repositorio de TP2 y cada integrante lo clonó. Acordamos trabajar mediante ramas de Git, una por persona, subiendo solo los archivos propios, y mantener la convención de Conventional Commits (feat:, fix:, style:, docs:) para tener un historial limpio y transparente. Los roles quedaron así:",
     puntos: [
       "Judith: coordinación general, arquitectura (Vite, React Router, Layout y Sidebar), portada y estructura de los perfiles y de recursos.json.",
