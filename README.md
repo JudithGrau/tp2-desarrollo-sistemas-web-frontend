@@ -161,9 +161,9 @@ Genera de forma aleatoria recomendaciones de música o cine para sesiones de pro
 
 Galerías de películas y discos con desplazamiento horizontal mediante botones, tarjetas con efecto hover y una capa informativa que revela título, artista, datos y una reseña breve.
 
-4. Perfil de Lucas — Interacción propia
+4. Perfil de Lucas — Interacción propia y Galerías
 
-COMPLETAR: describir en una o dos oraciones la interacción de LucasProfile.jsx.
+Incorpora dos carruseles horizontales interactivos para películas y discos favoritos con control de límites, además de un widget dinámico aleatorio que sugiere recomendaciones de cine o música del catálogo personal evitando repeticiones inmediatas.
 
 5. Perfil de Mauro — Recomendación Aleatoria
 
@@ -287,7 +287,13 @@ Antigravity: Gemini 3.8 Flash High
 
 **Lucas Luccaroni**
 - Aplicación: Antigravity (Google DeepMind)
+- Modelo: Gemini 3.8 Flash High
 - En qué contenido o tarea:
+  1. *Estructuración de Datos Locales (src/data/recursos.json):* Modelado y categorización de los 20 registros temáticos frontend con atributos normalizados (id, título, categoría, descripción, enlace y tags).
+  2. *Búsqueda y Filtros Reactivos (src/pages/Recursos.jsx):* Implementación de la lógica de filtrado reactivo combinado con useMemo, botón de reseteo, gestión de estado vacío y tarjetas desplegables para consultar información adicional.
+  3. *Perfil Personal y Carruseles (src/pages/profiles/LucasProfile.jsx):* Adaptación integral de la vista del TP1 a React, incorporando carruseles horizontales con useRef y un componente interactivo con useState para generar recomendaciones aleatorias de cine y música.
+  4. *Optimización Responsive y Accesibilidad (src/components/Sidebar.jsx):* Refactorización del panel lateral móvil con bloqueo de scroll en el body, cierre con la tecla Escape y atributos ARIA (aria-expanded y aria-controls).
+  5. *Control de Versiones y Sincronización:* Resolución de base limpia mediante git rebase sobre la rama integracion-tp2 y seguimiento de Conventional Commits.
 
 **Mauro Flores**	
 - Aplicación: Claude web (Sonnet 5.5) y Antigravity (3.8 Flah High)
