@@ -1,11 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleSidebar = () => setIsOpen(!isOpen);
+  const toggleSidebar = () => setIsOpen((prev) => !prev);
   const closeSidebar = () => setIsOpen(false);
+
+  // Bloqueo de scroll de fondo y soporte para tecla Escape en móviles (Criterio 05 - Nivel Propone)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -14,14 +35,26 @@ export default function Sidebar() {
         className="mobile-menu-btn" 
         onClick={toggleSidebar}
         aria-label="Alternar menú de navegación"
+        aria-expanded={isOpen}
+        aria-controls="main-sidebar"
       >
         {isOpen ? '✕' : '☰'}
       </button>
 
       {/* Overlay para cerrar el menú al hacer clic afuera en móviles */}
-      {isOpen && <div className="sidebar-backdrop" onClick={closeSidebar}></div>}
+      {isOpen && (
+        <div 
+          className="sidebar-backdrop" 
+          onClick={closeSidebar}
+          aria-hidden="true"
+        />
+      )}
 
-      <aside className={`sidebar ${isOpen ? 'sidebar-open' : ''}`}>
+      <aside 
+        id="main-sidebar"
+        className={`sidebar ${isOpen ? 'sidebar-open' : ''}`}
+        aria-label="Navegación principal del sitio"
+      >
         <div className="sidebar-brand">
           <span className="brand-badge">TP2</span>
           <h2>DevTeam</h2>
