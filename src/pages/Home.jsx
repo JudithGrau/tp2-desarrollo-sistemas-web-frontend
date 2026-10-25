@@ -45,11 +45,13 @@ const teamMembers = [
 
 export default function Home() {
   const [selectedMember, setSelectedMember] = useState(null);
+  const [avatarError, setAvatarError] = useState(false);
 
   const handleRandomMember = () => {
     const availableMembers = teamMembers.filter(m => !selectedMember || m.id !== selectedMember.id);
     const randomIndex = Math.floor(Math.random() * availableMembers.length);
     setSelectedMember(availableMembers[randomIndex]);
+    setAvatarError(false);
   };
 
   return (
@@ -93,24 +95,22 @@ export default function Home() {
               <div className="random-member-card mt-4" aria-live="polite">
                 <div className="random-card-inner">
                   <div className="random-avatar-wrapper">
-                    <img 
-                      src={selectedMember.avatar} 
-                      alt={`Foto de ${selectedMember.name}`} 
-                      className="random-avatar-img"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        if (e.target.nextElementSibling) {
-                          e.target.nextElementSibling.style.display = 'flex';
-                        }
-                      }}
-                    />
-                    <div className="random-avatar-fallback" style={{ display: 'none' }}>
-                      {selectedMember.icon}
-                    </div>
+                    {!avatarError && selectedMember.avatar ? (
+                      <img 
+                        src={selectedMember.avatar} 
+                        alt={`Foto de ${selectedMember.name}`} 
+                        className="random-avatar-img"
+                        onError={() => setAvatarError(true)}
+                      />
+                    ) : (
+                      <div className="random-avatar-fallback">
+                        {selectedMember.icon}
+                      </div>
+                    )}
                   </div>
 
                   <div className="random-member-info">
-                    <span className="badge-role">{selectedMember.role}</span>
+                    <span className="badge badge-blue">{selectedMember.role}</span>
                     <h4>{selectedMember.name}</h4>
                     <p>{selectedMember.description}</p>
                     <Link to={`/perfil/${selectedMember.id}`} className="btn btn-secondary">
