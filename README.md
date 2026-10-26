@@ -262,19 +262,27 @@ El TP1 fue un sitio en HTML, CSS y JavaScript sin librerías, con un archivo por
 En cumplimiento con la sección didáctica y transversal del trabajo práctico:
 
 - Aplicaciones utilizadas:
- - Antigravity (asistente de código dentro del editor).
- - Claude (aplicación web de Anthropic).
+  - Antigravity (asistente de código dentro del editor).
+  - Claude (aplicación web de Anthropic).
+  - ChatGPT (asistente de código Codex, de OpenAI).
 - Modelos utilizados:
-Claude: Sonnet 5.5
-Antigravity: Gemini 3.8 Flash High
+  - Claude: Sonnet 5.5.
+  - Antigravity: Gemini 3.8 Flash High.
+  - Codex: GPT-6.
 
 ---
 
 ## Uso por integrante:
  
 **Judith Grau**
-- Aplicación:
-- En qué contenido o tarea:
+- **Aplicación:** ChatGPT (asistente de código Codex, de OpenAI).
+- **Modelo:** GPT-6.
+- **En qué contenido o tarea:**
+  1. *Comprensión de la arquitectura React:* consultas sobre React Router, la ubicación de `BrowserRouter`, las rutas anidadas y la función de `Outlet` dentro del layout compartido.
+  2. *Revisión de la estructura del proyecto:* análisis de la modularización de páginas y componentes, la sidebar compartida y la portada con tarjetas reutilizables.
+  3. *Integración del trabajo grupal:* orientación sobre ramas, comparación de cambios y Pull Requests para integrar primero en `integracion-tp2` y luego en `main`.
+  4. *Publicación en Vercel:* asistencia para configurar el proyecto Vite y comprender el flujo de deploy de producción desde `main`.
+- **Alcance de la asistencia:** se utilizó para resolver dudas, revisar la organización del proyecto y orientar el flujo de integración y publicación. La implementación y las decisiones finales fueron revisadas y realizadas por Judith.
 
 **Matías Jara**		
 - Aplicación: Antigravity (Google DeepMind)
