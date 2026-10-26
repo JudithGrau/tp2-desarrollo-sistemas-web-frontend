@@ -2,25 +2,161 @@
   {
     "id": 1,
     "titulo": "React Documentation",
-    "categoria": "Frameworks / Librerías",
-    "descripcion": "Documentación oficial con explicaciones guiadas, tutoriales interactivos y buenas prácticas para React.",
+    "categoria": "Frameworks & Librerías",
+    "descripcion": "Documentación oficial de React con explicaciones guiadas, arquitectura de componentes, hooks y buenas prácticas.",
     "enlace": "https://react.dev",
-    "tags": ["frontend", "javascript", "react"]
+    "tags": ["react", "frontend", "javascript", "ui", "componentes"]
   },
   {
     "id": 2,
-    "titulo": "Vite",
-    "categoria": "Herramientas de Build",
-    "descripcion": "Entorno de desarrollo rápido y empaquetador moderno para aplicaciones web con soporte nativo de ES Modules.",
-    "enlace": "https://vitejs.dev",
-    "tags": ["build", "bundler", "vite"]
+    "titulo": "React Router",
+    "categoria": "Frameworks & Librerías",
+    "descripcion": "Librería estándar para gestión de rutas, navegación declarativa y sincronización de URL en aplicaciones SPA.",
+    "enlace": "https://reactrouter.com",
+    "tags": ["routing", "navegacion", "spa", "react"]
   },
   {
     "id": 3,
+    "titulo": "Vite",
+    "categoria": "Herramientas de Desarrollo",
+    "descripcion": "Herramienta de compilación ultrarrápida para desarrollo frontend basada en ES Modules nativos y Rollup.",
+    "enlace": "https://vitejs.dev",
+    "tags": ["build", "bundler", "esm", "desarrollo"]
+  },
+  {
+    "id": 4,
     "titulo": "MDN Web Docs",
-    "categoria": "Documentación & Guías",
-    "descripcion": "Referencia técnica exhaustiva sobre HTML, CSS, JavaScript y estándares web modernos.",
+    "categoria": "Documentación & Estándares",
+    "descripcion": "Repositorio exhaustivo mantenido por Mozilla con documentación técnica sobre HTML5, CSS3, JavaScript y Web APIs.",
     "enlace": "https://developer.mozilla.org",
-    "tags": ["html", "css", "javascript", "docs"]
+    "tags": ["mdn", "html", "css", "javascript", "web-apis"]
+  },
+  {
+    "id": 5,
+    "titulo": "Can I Use",
+    "categoria": "Documentación & Estándares",
+    "descripcion": "Tablas actualizadas de compatibilidad para evaluar el soporte de características CSS y JavaScript en navegadores.",
+    "enlace": "https://caniuse.com",
+    "tags": ["compatibilidad", "browsers", "css", "estandares"]
+  },
+  {
+    "id": 6,
+    "titulo": "JavaScript.info",
+    "categoria": "Documentación & Estándares",
+    "descripcion": "Tutorial exhaustivo y moderno de JavaScript que abarca desde fundamentos del lenguaje hasta asincronía avanzada.",
+    "enlace": "https://javascript.info",
+    "tags": ["javascript", "es6", "promesas", "dom"]
+  },
+  {
+    "id": 7,
+    "titulo": "Lucide Icons",
+    "categoria": "Estilos & UI",
+    "descripcion": "Colección modular de iconos vectoriales consistentes y accesibles con soporte directo para componentes de React.",
+    "enlace": "https://lucide.dev",
+    "tags": ["iconos", "svg", "ui", "vectores"]
+  },
+  {
+    "id": 8,
+    "titulo": "Google Fonts",
+    "categoria": "Estilos & UI",
+    "descripcion": "Directorio de fuentes tipográficas de código abierto optimizadas para carga rápida y legibilidad en entornos web.",
+    "enlace": "https://fonts.google.com",
+    "tags": ["tipografia", "fonts", "css", "diseno"]
+  },
+  {
+    "id": 9,
+    "titulo": "Coolors",
+    "categoria": "Estilos & UI",
+    "descripcion": "Generador dinámico de paletas de colores armónicas con verificación de contraste y accesibilidad WCAG.",
+    "enlace": "https://coolors.co",
+    "tags": ["paletas", "colores", "accesibilidad", "diseno"]
+  },
+  {
+    "id": 10,
+    "titulo": "CSS-Tricks",
+    "categoria": "Documentación & Estándares",
+    "descripcion": "Guías visuales de referencia rápida y artículos técnicos detallados sobre Flexbox, CSS Grid y animaciones.",
+    "enlace": "https://css-tricks.com",
+    "tags": ["css", "flexbox", "grid", "maquetacion"]
+  },
+  {
+    "id": 11,
+    "titulo": "ESLint",
+    "categoria": "Herramientas de Desarrollo",
+    "descripcion": "Herramienta de análisis estático de código para identificar errores de sintaxis y asegurar convenciones de estilo.",
+    "enlace": "https://eslint.org",
+    "tags": ["linter", "calidad", "javascript", "reglas"]
+  },
+  {
+    "id": 12,
+    "titulo": "Prettier",
+    "categoria": "Herramientas de Desarrollo",
+    "descripcion": "Formateador de código con soporte multiformato que garantiza un estilo visual consistente y libre de debates.",
+    "enlace": "https://prettier.io",
+    "tags": ["formateo", "productividad", "estilo"]
+  },
+  {
+    "id": 13,
+    "titulo": "React DevTools",
+    "categoria": "Herramientas de Desarrollo",
+    "descripcion": "Extensión de navegador para inspeccionar jerarquías de componentes, props, hooks y estado interno en tiempo real.",
+    "enlace": "https://react.dev/learn/react-developer-tools",
+    "tags": ["debugging", "devtools", "extension", "react"]
+  },
+  {
+    "id": 14,
+    "titulo": "Vercel",
+    "categoria": "Plataformas & Servicios",
+    "descripcion": "Plataforma de despliegue y alojamiento en la nube con integración continua automática y soporte nativo para Vite.",
+    "enlace": "https://vercel.com",
+    "tags": ["deploy", "hosting", "ci-cd", "cloud"]
+  },
+  {
+    "id": 15,
+    "titulo": "GitHub",
+    "categoria": "Plataformas & Servicios",
+    "descripcion": "Plataforma global de desarrollo colaborativo basada en Git para gestión de repositorios, Pull Requests y código.",
+    "enlace": "https://github.com",
+    "tags": ["git", "colaboracion", "repositorio", "versionado"]
+  },
+  {
+    "id": 16,
+    "titulo": "JSONPlaceholder",
+    "categoria": "Plataformas & Servicios",
+    "descripcion": "API REST simulada y gratuita diseñada para prototipar llamadas HTTP con datos realistas en frontend.",
+    "enlace": "https://jsonplaceholder.typicode.com",
+    "tags": ["api", "mock", "rest", "http", "fetch"]
+  },
+  {
+    "id": 17,
+    "titulo": "Hoppscotch",
+    "categoria": "Herramientas de Desarrollo",
+    "descripcion": "Cliente de desarrollo de APIs liviano y basado en la web para testear endpoints HTTP, REST y GraphQL.",
+    "enlace": "https://hoppscotch.io",
+    "tags": ["api", "testing", "http", "rest"]
+  },
+  {
+    "id": 18,
+    "titulo": "Zustand",
+    "categoria": "Frameworks & Librerías",
+    "descripcion": "Gestor de estado global minimalista, rápido y escalable basado en hooks simples sin boilerplate excesivo.",
+    "enlace": "https://zustand-demo.pmnd.rs",
+    "tags": ["estado", "state-management", "hooks", "react"]
+  },
+  {
+    "id": 19,
+    "titulo": "Bundlephobia",
+    "categoria": "Herramientas de Desarrollo",
+    "descripcion": "Herramienta analítica para medir el peso en kilobytes y el costo de rendimiento de paquetes npm antes de instalarlos.",
+    "enlace": "https://bundlephobia.com",
+    "tags": ["rendimiento", "npm", "metricas", "peso"]
+  },
+  {
+    "id": 20,
+    "titulo": "Figma",
+    "categoria": "Estilos & UI",
+    "descripcion": "Entorno colaborativo de diseño de interfaces, prototipado dinámico y sistemas de diseño para equipos de desarrollo.",
+    "enlace": "https://figma.com",
+    "tags": ["diseno", "ui", "ux", "prototipos", "tokens"]
   }
 ]
