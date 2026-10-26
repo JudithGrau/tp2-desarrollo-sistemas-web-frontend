@@ -243,7 +243,7 @@ El sitio se abre en http://localhost:5173. Para generar la versión de producci�
 
 ## Demo
 
-🔗 [Link vercel](https://tp2-desarrollo-sistemas-web-fronten.vercel.app/)
+🔗 ![Link Vercel](https://tp2-desarrollo-sistemas-web-fronten.vercel.app/)
 
 ---
 
@@ -272,22 +272,14 @@ Antigravity: Gemini 3.8 Flash High
 
 ## Uso por integrante:
  
-**Judith Grau**
-- Aplicación:
-- En qué contenido o tarea:
-
 **Matías Jara**		
 - Aplicación: Antigravity (Google DeepMind)
 - En qué contenido o tarea: 
-  1. *Arquitectura CSS y Design Tokens (src/styles/style.css):* Asistencia en la extracción y consolidación de tokens de diseño en :root (paleta extendida con variantes de transparencia, escala de espaciado modular Mobile First y escala tipográfica fluida mediante funciones clamp()).
-  2. *Componente Reutilizable con Props (src/components/CardBezel.jsx):* Generación y tipado de props para el componente modular double-bezel (title, subtitle, image, badge, enlaces dinámicos internos/externos y children), eliminando por completo el uso de estilos en línea (style={}).
-  3. *Perfil Interactivo y Carruseles (src/pages/profiles/MatiasProfile.jsx):* Migración y refactorización de la lógica del carrusel de películas y discos desde JavaScript vainilla hacia Hooks de React, empleando useRef para la referencia y cálculo dinámico del salto por tarjeta, y useState para el control de habilitación/deshabilitación de los botones de navegación.
-  4. *Diagnóstico y Corrección Responsive:* Detección y solución del bug de contracción de layout a 400px causado por un max-width residual de la barra lateral en .main-content, unificando el comportamiento en los breakpoints de 900px y 400px.
-  5. *Auditoría de Coherencia Estética (Criterio 09 - "Supera"):* Revisión de la composición visual transversal en la Portada (Home.jsx) y perfiles, asegurando consistencia en tarjetas, jerarquía tipográfica y accesibilidad.
-
-**Lucas Luccaroni**
-- Aplicación: Antigravity (Google DeepMind)
-- En qué contenido o tarea:
+1. **Arquitectura CSS y Design Tokens (src/styles/style.css):** Asistencia en la extracción y consolidación de tokens de diseño en :root (paleta extendida con variantes de transparencia, escala de espaciado modular Mobile First y escala tipográfica fluida mediante funciones clamp()).
+2. **Componente Reutilizable con Props (src/components/CardBezel.jsx):** Generación y tipado de props para el componente modular double-bezel (title, subtitle, image, badge, enlaces dinámicos internos/externos y children), eliminando por completo el uso de estilos en línea (style={}).
+3. **Perfil Interactivo y Carruseles (src/pages/profiles/MatiasProfile.jsx):** Migración y refactorización de la lógica del carrusel de películas y discos desde JavaScript vainilla hacia Hooks de React, empleando useRef para la referencia y cálculo dinámico del salto por tarjeta, y useState para el control de habilitación/deshabilitación de los botones de navegación.
+4. **Diagnóstico y Corrección Responsive:** Detección y solución del bug de contracción de layout a 400px causado por un max-width residual de la barra lateral en .main-content, unificando el comportamiento en los breakpoints de 900px y 400px.
+5. **Auditoría de Coherencia Estética (Criterio 09 - "Supera"):** Revisión de la composición visual transversal en la Portada (Home.jsx) y perfiles, asegurando consistencia en tarjetas, jerarquía tipográfica y accesibilidad.
 
 **Mauro Flores**	
 - Aplicación: Claude web (Sonnet 5.5) y Antigravity (3.8 Flah High)
