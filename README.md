@@ -203,6 +203,8 @@ El archivo src/data/recursos.json reúne 20 registros relacionados con la propue
 ![Captura de pantalla perfil Judith](src/assets/screenshots/perfilJudith.png)
 ![Captura de pantalla perfil Matías](src/assets/screenshots/perfilMatias.png)
 ![Captura de pantalla perfil Mauro](src/assets/screenshots/perfilMauro.png)
+![Captura de pantalla perfil Lucas](src/assets/screenshots/perfilLucas.png)
+![Captura de pantalla Recursos y Herramientas](src/assets/screenshots/recursosHerramientas.png)
 ![Captura de pantalla Bitácora](src/assets/screenshots/bitacora.png)
 ![Captura de pantalla del Render Tree](src/assets/screenshots/renderTree.png)
 ![Captura de pantalla de la API rest a Github](src/assets/screenshots/githubRestApi.png)
