@@ -250,12 +250,12 @@ const CONSIGNA = [
       'El equipo mantuvo la identidad visual del TP1 y la adaptó a React: paleta de colores propia, tipografías Sora e Inter, tarjetas de doble borde y avatares personalizados. Los mismos estilos se usan en la portada, los perfiles y las secciones técnicas, por lo que todo se ve como un único sistema.'
   },
   {
-    n: 10,
+        n: 10,
     criterio: 'Datos locales JSON',
     responsable: 'Lucas',
     estado: 'listo',
     detalle:
-      'El archivo recursos.json contiene 20 registros relacionados con la propuesta del equipo, con id, nombre, categoría, descripción y enlace. Recursos.jsx los muestra de forma dinámica en tarjetas.'
+      'El archivo recursos.json contiene 20 registros relacionados con la propuesta del equipo, cada uno con id, titulo, descripcion, categoria, tags y enlace. Recursos.jsx los muestra de forma dinámica en tarjetas, con un panel de detalles desplegable.'
   },
   {
     n: 11,
@@ -263,7 +263,7 @@ const CONSIGNA = [
     responsable: 'Lucas',
     estado: 'listo',
     detalle:
-      'Sobre el listado de recursos hay una búsqueda por texto, que revisa nombre y descripción, y un filtro por categoría. Ambos actualizan los resultados al instante y, si nada coincide, se muestra un mensaje de sin resultados.'
+      'Sobre el listado hay una búsqueda por texto en tiempo real (título, descripción y etiquetas) y un filtro por categoría. Ambos se combinan y actualizan los resultados al instante. Incluye un contador de resultados, un botón para restablecer los filtros y un mensaje cuando no hay coincidencias.'
   },
   {
     n: 12,
