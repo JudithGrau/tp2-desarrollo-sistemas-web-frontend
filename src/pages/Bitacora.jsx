@@ -8,7 +8,7 @@ const ENTRADAS = [
     puntos: [
       "Judith: coordinación general, arquitectura (Vite, React Router, Layout y Sidebar), portada y estructura de los perfiles y de recursos.json.",
       "Matías: su perfil en MatiasProfile.jsx y los ajustes visuales de los componentes.",
-      "Lucas: los 20 registros de recursos.json, la búsqueda y los filtros en Recursos.jsx, y su perfil en LucasProfile.jsx.",
+      "Lucas: estructura de los datos locales en recursos.json (20 registros), la sección Recursos con búsqueda y filtros en tiempo real, su perfil en LucasProfile.jsx y la optimización responsive.",
       "Mauro: consumo de la API en ApiView.jsx, árbol de renderizado en RenderTree.jsx, bitácora en Bitacora.jsx y su perfil en MauroProfile.jsx."
     ]
   },
@@ -89,21 +89,43 @@ const ENTRADAS = [
 
 {
   entrada: "7",
-  titulo: "Lucas: recursos.json, búsqueda y filtros",
-  responsables: "Lucas Luccaroni",
+  titulo: "Lucas: datos locales, búsqueda y filtros en Recursos",
+  responsables: "Lucas.",
   tipo: "Decisión",
   texto:
-    "Lucas decidió que la sección de recursos funcionara con datos locales, de forma que la búsqueda y el filtro actualizaran la pantalla sin depender de ningún servicio externo. Su plan de trabajo:",
-    pasos: [
-      "Completó recursos.json con al menos 20 registros relacionados con la propuesta del equipo, cada uno con id, nombre, categoría, descripción y enlace, para que la categoría pudiera usarse como filtro.",
-      "En Recursos.jsx importó el JSON y creó dos estados con useState: el texto de búsqueda y la categoría seleccionada.",
-      "Calculó la lista visible con filter: un recurso se muestra si su nombre o descripción incluye el texto buscado (sin distinguir mayúsculas) y si coincide con la categoría elegida o está seleccionada la opción (todas).",
-      "Mostró los resultados con map en tarjetas del sistema de diseño, y agregó un mensaje de “sin resultados” cuando ningún recurso coincide.",
-      "Agregó un campo de texto y un selector de categoría que actualizan los estados en cada cambio, de modo que la lista se actualiza al instante.",
+      "Lucas decidió que la sección de recursos funcionara solo con datos locales, de modo que la búsqueda y el filtro actualizaran la pantalla al instante y sin depender de ningún servicio externo. Para lograrlo siguió estos pasos:",
+  pasos: [
+      "Definió la estructura de cada registro de recursos.json (id, titulo, descripcion, categoria, tags y enlace) y cargó 20 recursos del ecosistema frontend, de modo que la categoría sirviera para filtrar y las etiquetas para buscar por palabra clave.",
+      "En Recursos.jsx importó el JSON y creó tres estados con useState: el texto de búsqueda, la categoría seleccionada (Todas por defecto) y la tarjeta expandida.",
+      "Con useMemo obtuvo la lista de categorías únicas a partir de los propios datos (usando un Set), para que los botones de filtro se generen solos y no haya que mantenerlos a mano.",
+      "Con useMemo calculó la lista visible combinando ambos filtros: primero descarta lo que no coincide con la categoría y después busca el texto, sin distinguir mayúsculas, en el título, la descripción y las etiquetas.",
+      "Armó los controles: un campo de búsqueda en tiempo real con un botón para limpiarlo, botones de categoría con el activo resaltado, un contador (Mostrando X de 20 recursos) y un botón para restablecer filtros que aparece solo cuando hay filtros activos.",
+      "Mostró los resultados en tarjetas double-bezel con categoría, número, título y descripción, un botón Visitar que abre el enlace en otra pestaña y un botón Ver más detalles que despliega las etiquetas y la URL. Las etiquetas son clicables y cargan su valor en la búsqueda.",
+      "Resolvió el caso sin coincidencias con un mensaje que indica la búsqueda y la categoría aplicadas y un botón para restablecer y volver a ver los 20 recursos.",
+      "Cuidó la accesibilidad: etiqueta asociada al campo de búsqueda, aria-label en el botón de limpiar y en la sección de controles, y aria-expanded en el desplegable de cada tarjeta."
     ]
   },
+  
   {
-    entrada: "8",
+    entrada: '8',
+    titulo: "Lucas: perfil con carruseles reutilizables y recomendación aleatoria",
+    responsables: "Lucas.",
+    tipo: "Decisión",
+    texto:
+      "Para su perfil, Lucas decidió reutilizar la estructura común del equipo y resolver las galerías de películas y discos con un único componente de carrusel, evitando duplicar código. Su trabajo, paso a paso:",
+    pasos: [
+      "Reutilizó la estructura de perfil del equipo con un objeto de datos (lucasData) que reúne la presentación, el rol, la ciudad, la edad, la biografía, los enlaces a GitHub y a su portafolio, cuatro habilidades, seis películas y cinco discos.",
+      "Importó su foto y las portadas desde la carpeta de recursos del proyecto (assets/other/perfil-lucas) y sumó un respaldo: si el avatar no carga, se muestra un ícono en su lugar.",
+      "Creó el componente MediaCarousel, reutilizable para películas y discos mediante propiedades (título, subtítulo, elementos y si es un disco), que usa las clases compartidas del sistema visual (media-card, media-overlay y carousel-btn).",
+      "Programó la lógica del carrusel: una referencia a la galería, estados para saber si se puede ir hacia atrás o hacia adelante, y un efecto que recalcula esos límites al desplazar o al cambiar el tamaño de la ventana, limpiando los eventos al desmontar. Los botones de flecha se deshabilitan en los extremos.",
+      "Calculó el paso de desplazamiento a partir del ancho real de las tarjetas y del espacio entre ellas: avanza dos tarjetas cuando se ven tres o más, una cuando se ven menos, con desplazamiento suave.",
+      "Hizo que cada tarjeta muestre, sobre la portada, la etiqueta, el título, el artista, el año y una reseña breve, accesibles también con el teclado y con carga diferida de las imágenes.",
+      "Como interacción propia, armó un botón que combina películas y discos en un solo catálogo y recomienda uno al azar, sin repetir el anterior, mostrando el tipo, el título, el año, la etiqueta y la reseña."
+    ]
+  },
+
+  {
+    entrada: "9",
     titulo: "Mauro: API pública con estados de carga y error",
     responsables: "Mauro Flores",
     tipo: "Decisión",
@@ -118,7 +140,7 @@ const ENTRADAS = [
     ]
   }, 
   {
-    entrada: "9",
+    entrada: "10",
     titulo: "Mauro: árbol de renderizado verificado contra el código",
     responsables: "Mauro Flores",
     tipo: "Logro",
@@ -132,7 +154,7 @@ const ENTRADAS = [
     ]
   },
   {
-   entrada: "10",
+   entrada: "11",
     titulo: "Mauro: bitácora integrada a la navegación",
     responsables: "Mauro Flores",
     tipo: "Decisión",
@@ -146,7 +168,7 @@ const ENTRADAS = [
     ]
 },
 {
-  entrada: "11",
+  entrada: "12",
   titulo: "Uso de IA como asistente",
   responsables: "Todos",
   tipo: "Decisión",
