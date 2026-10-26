@@ -161,9 +161,9 @@ Genera de forma aleatoria recomendaciones de música o cine para sesiones de pro
 
 Galerías de películas y discos con desplazamiento horizontal mediante botones, tarjetas con efecto hover y una capa informativa que revela título, artista, datos y una reseña breve.
 
-4. Perfil de Lucas — Interacción propia
+4. Perfil de Lucas — Interacción propia y Galerías
 
-COMPLETAR: describir en una o dos oraciones la interacción de LucasProfile.jsx.
+Incorpora dos carruseles horizontales interactivos para películas y discos favoritos con control de límites, además de un widget dinámico aleatorio que sugiere recomendaciones de cine o música del catálogo personal evitando repeticiones inmediatas.
 
 5. Perfil de Mauro — Recomendación Aleatoria
 
@@ -262,19 +262,27 @@ El TP1 fue un sitio en HTML, CSS y JavaScript sin librerías, con un archivo por
 En cumplimiento con la sección didáctica y transversal del trabajo práctico:
 
 - Aplicaciones utilizadas:
- - Antigravity (asistente de código dentro del editor).
- - Claude (aplicación web de Anthropic).
+  - Antigravity (asistente de código dentro del editor).
+  - Claude (aplicación web de Anthropic).
+  - ChatGPT (asistente de código Codex, de OpenAI).
 - Modelos utilizados:
-Claude: Sonnet 5.5
-Antigravity: Gemini 3.8 Flash High
+  - Claude: Sonnet 5.5.
+  - Antigravity: Gemini 3.8 Flash High.
+  - Codex: GPT-6.
 
 ---
 
 ## Uso por integrante:
  
 **Judith Grau**
-- Aplicación:
-- En qué contenido o tarea:
+- **Aplicación:** ChatGPT (asistente de código Codex, de OpenAI).
+- **Modelo:** GPT-6.
+- **En qué contenido o tarea:**
+  1. *Comprensión de la arquitectura React:* consultas sobre React Router, la ubicación de `BrowserRouter`, las rutas anidadas y la función de `Outlet` dentro del layout compartido.
+  2. *Revisión de la estructura del proyecto:* análisis de la modularización de páginas y componentes, la sidebar compartida y la portada con tarjetas reutilizables.
+  3. *Integración del trabajo grupal:* orientación sobre ramas, comparación de cambios y Pull Requests para integrar primero en `integracion-tp2` y luego en `main`.
+  4. *Publicación en Vercel:* asistencia para configurar el proyecto Vite y comprender el flujo de deploy de producción desde `main`.
+- **Alcance de la asistencia:** se utilizó para resolver dudas, revisar la organización del proyecto y orientar el flujo de integración y publicación. La implementación y las decisiones finales fueron revisadas y realizadas por Judith.
 
 **Matías Jara**		
 - Aplicación: Antigravity (Google DeepMind)
@@ -287,7 +295,13 @@ Antigravity: Gemini 3.8 Flash High
 
 **Lucas Luccaroni**
 - Aplicación: Antigravity (Google DeepMind)
+- Modelo: Gemini 3.8 Flash High
 - En qué contenido o tarea:
+  1. *Estructuración de Datos Locales (src/data/recursos.json):* Modelado y categorización de los 20 registros temáticos frontend con atributos normalizados (id, título, categoría, descripción, enlace y tags).
+  2. *Búsqueda y Filtros Reactivos (src/pages/Recursos.jsx):* Implementación de la lógica de filtrado reactivo combinado con useMemo, botón de reseteo, gestión de estado vacío y tarjetas desplegables para consultar información adicional.
+  3. *Perfil Personal y Carruseles (src/pages/profiles/LucasProfile.jsx):* Adaptación integral de la vista del TP1 a React, incorporando carruseles horizontales con useRef y un componente interactivo con useState para generar recomendaciones aleatorias de cine y música.
+  4. *Optimización Responsive y Accesibilidad (src/components/Sidebar.jsx):* Refactorización del panel lateral móvil con bloqueo de scroll en el body, cierre con la tecla Escape y atributos ARIA (aria-expanded y aria-controls).
+  5. *Control de Versiones y Sincronización:* Resolución de base limpia mediante git rebase sobre la rama integracion-tp2 y seguimiento de Conventional Commits.
 
 **Mauro Flores**	
 - Aplicación: Claude web (Sonnet 5.5) y Antigravity (3.8 Flah High)
