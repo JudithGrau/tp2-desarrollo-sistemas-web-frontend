@@ -203,6 +203,8 @@ El archivo src/data/recursos.json reúne 20 registros relacionados con la propue
 ![Captura de pantalla perfil Judith](src/assets/screenshots/perfilJudith.png)
 ![Captura de pantalla perfil Matías](src/assets/screenshots/perfilMatias.png)
 ![Captura de pantalla perfil Mauro](src/assets/screenshots/perfilMauro.png)
+![Captura de pantalla perfil Lucas](src/assets/screenshots/perfilLucas.png)
+![Captura de pantalla Recursos y Herramientas](src/assets/screenshots/recursosHerramientas.png)
 ![Captura de pantalla Bitácora](src/assets/screenshots/bitacora.png)
 ![Captura de pantalla del Render Tree](src/assets/screenshots/renderTree.png)
 ![Captura de pantalla de la API rest a Github](src/assets/screenshots/githubRestApi.png)
@@ -306,10 +308,10 @@ En cumplimiento con la sección didáctica y transversal del trabajo práctico:
 **Mauro Flores**	
 - Aplicación: Claude web (Sonnet 5.5) y Antigravity (3.8 Flah High)
 - En qué contenido o tarea: 
-1. **Aplicaciones y modelos:** Antigravity (asistente de código en el editor) y Claude (aplicación web de Anthropic). Modelo de Claude: **COMPLETAR**. Plan gratuito.
-2. **Contenido y tareas en las que se usó:** `ApiView.jsx`, `RenderTree.jsx`, `Bitacora.jsx`, `MauroProfile.jsx` y la redacción de este README.
-3. **Alcance de la asistencia:** apoyo en la escritura y la depuración de componentes de React, la estructura de los datos, el diseño de la interfaz y la documentación técnica.
-4. **Criterio de privacidad y seguridad:** no se incorporaron credenciales reales ni claves privadas en el repositorio. La API pública de GitHub se consulta sin clave desde el navegador.
-5. **Criterio propio y adaptación:** cada bloque de código sugerido fue revisado, adaptado al sistema de diseño definido por el equipo (double-bezel, paleta de tokens `:root` y convenciones de nombres) y probado manualmente para comprobar que funcione y que se vea coherente con el resto de la aplicación.
+  1. **Aplicaciones y modelos:** Antigravity (asistente de código en el editor) y Claude (aplicación web de Anthropic). Modelo de Claude: **COMPLETAR**. Plan gratuito.
+  2. **Contenido y tareas en las que se usó:** `ApiView.jsx`, `RenderTree.jsx`, `Bitacora.jsx`, `MauroProfile.jsx` y la redacción de este README.
+  3. **Alcance de la asistencia:** apoyo en la escritura y la depuración de componentes de React, la estructura de los datos, el diseño de la interfaz y la documentación técnica.
+  4. **Criterio de privacidad y seguridad:** no se incorporaron credenciales reales ni claves privadas en el repositorio. La API pública de GitHub se consulta sin clave desde el navegador.
+  5. **Criterio propio y adaptación:** cada bloque de código sugerido fue revisado, adaptado al sistema de diseño definido por el equipo (double-bezel, paleta de tokens `:root` y convenciones de nombres) y probado manualmente para comprobar que funcione y que se vea coherente con el resto de la aplicación.
 
 ---
